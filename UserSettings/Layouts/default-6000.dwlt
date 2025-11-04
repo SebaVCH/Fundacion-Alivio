@@ -555,6 +555,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   brushSettingsAsset: {fileID: 11400000, guid: db5d30907e9599c4c811e6c69190f46f, type: 2}
 --- !u!114 &20
 MonoBehaviour:
@@ -771,7 +772,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 76d10000
     m_LastClickedID: 53622
-    m_ExpandedIDs: 000000005aa90100
+    m_ExpandedIDs: 0000000070f4020072f40200
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -800,7 +801,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005aa90100
+    m_ExpandedIDs: 0000000070f4020072f40200
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1523,7 +1524,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 0, y: 1.2533333, z: 0.5}
     speed: 2
-    m_Value: {x: -2727.9678, y: 1706.8043, z: 15834.157}
+    m_Value: {x: 0, y: 1.2533333, z: 0.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1571,11 +1572,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.12604216, y: -0.019068887, z: 0.002420534, w: -0.99186856}
     speed: 2
-    m_Value: {x: 0.04234069, y: 0.9577589, z: -0.20213766, w: 0.20053542}
+    m_Value: {x: -0.12604216, y: -0.01906889, z: 0.0024205341, w: -0.9918686}
   m_Size:
     m_Target: 0.37654683
     speed: 2
-    m_Value: 209.59508
+    m_Value: 0.37654683
   m_Ortho:
     m_Target: 0
     speed: 2
