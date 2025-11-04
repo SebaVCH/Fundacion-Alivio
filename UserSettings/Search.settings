@@ -9,11 +9,11 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"picker_window_position_offset.00000000" = "-702.4;110.4;320;550.4"
+	"picker_window_position_offset.00000000" = "-408;-48;320;993"
 	"picker_visibility_flags.00000000" = "0"
 	"picker_item_size.00000000" = "1"
 	"picker_inspector.00000000" = "0"
-	"last_search.66F56946" = "polyb"
+	"last_search.66F56946" = "proye"
 	"OpenInspectorPreview.66F56946" = "0"
 	"currentGroup.66F56946" = "all"
 }
