@@ -11,7 +11,7 @@ public class ClickExample : MonoBehaviour {
 		btn.onClick.AddListener(() => OnStartClick(pathScene));
 	}
 
-	void OnStartClick(string pathScene){
+	void OnStartClick(string pathScene) {
         SceneManager.LoadScene(pathScene);
 	}
 }
