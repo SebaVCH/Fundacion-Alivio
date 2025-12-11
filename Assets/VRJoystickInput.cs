@@ -7,11 +7,16 @@ public class VRJoystickInput : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Transform vrCamera;
     [SerializeField] private Transform playerRoot;
+    [SerializeField] private AutomaticMovementWaypoints waypointSystem;
     
     [Header("Configuracion Movimiento")]
     [SerializeField] private float velocidadMovimiento = 5f;
     [SerializeField] private float gravedad = -15f;
     [SerializeField] private bool permitirTecladoTambien = true;
+    
+    [Header("Modo Automatico")]
+    [SerializeField] private bool modoAutomaticoActivo = false;
+    [SerializeField] private bool usarSistemaWaypoints = true;
     
     private InputDevice dispositivoIzquierdo;
     private Vector2 joystickInput;
@@ -29,6 +34,30 @@ public class VRJoystickInput : MonoBehaviour
             vrCamera = Camera.main.transform;
         }
 
+        if (playerRoot == null)
+        {
+            playerRoot = transform.parent;
+            if (playerRoot == null)
+            {
+                playerRoot = transform;
+            }
+        }
+
+        if (waypointSystem == null)
+        {
+            waypointSystem = GetComponent<AutomaticMovementWaypoints>();
+        }
+
+        if (GameModeManager.Instance != null)
+        {
+            modoAutomaticoActivo = GameModeManager.Instance.EsModoAutomatico();
+            
+            if (modoAutomaticoActivo && usarSistemaWaypoints && waypointSystem != null)
+            {
+                waypointSystem.IniciarRecorrido();
+            }
+        }
+
         InicializarDispositivoVR();
     }
 
@@ -42,6 +71,15 @@ public class VRJoystickInput : MonoBehaviour
     void LeerInputJoystick()
     {
         joystickInput = Vector2.zero;
+
+        if (modoAutomaticoActivo)
+        {
+            if (usarSistemaWaypoints && waypointSystem != null)
+            {
+                joystickInput = waypointSystem.ObtenerDireccionMovimiento();
+            }
+            return;
+        }
 
         if (!dispositivoIzquierdo.isValid)
         {
@@ -71,8 +109,19 @@ public class VRJoystickInput : MonoBehaviour
             return;
         }
 
-        Vector3 direccionAdelante = vrCamera.forward;
-        Vector3 direccionDerecha = vrCamera.right;
+        Vector3 direccionAdelante;
+        Vector3 direccionDerecha;
+        
+        if (modoAutomaticoActivo && usarSistemaWaypoints)
+        {
+            direccionAdelante = Vector3.forward;
+            direccionDerecha = Vector3.right;
+        }
+        else
+        {
+            direccionAdelante = vrCamera.forward;
+            direccionDerecha = vrCamera.right;
+        }
 
         direccionAdelante.y = 0;
         direccionDerecha.y = 0;
