@@ -6,7 +6,7 @@ public class MetronomoVRSimple : MonoBehaviour
 {
     [Header("Referencias UI")]
     public Text textoContador;
-    public RawImage circuloIndicador;  // Cambiar a RawImage
+    public RawImage circuloIndicador;
     
     [Header("Configuracion")]
     public int numeroTiempos = 4;
@@ -16,17 +16,18 @@ public class MetronomoVRSimple : MonoBehaviour
     public Transform camaraVR;
     public float distancia = 1.5f;
     public Vector3 offset = new Vector3(0.5f, 0.4f, 0);
-    public float suavizado = 5f;
+    public bool usarJerarquia = true; // NUEVA OPCIÓN
     
     [Header("Colores")]
     public Color colorActivo = Color.green;
     public Color colorInactivo = Color.gray;
     
     [Header("Texturas")]
-    public Texture2D texturaActiva;  // Nueva variable para textura activa
-    public Texture2D texturaInactiva; // Nueva variable para textura inactiva
+    public Texture2D texturaActiva;
+    public Texture2D texturaInactiva;
     
     private int tiempoActual = 1;
+    private bool inicializado = false;
     
     void Start()
     {
@@ -35,23 +36,33 @@ public class MetronomoVRSimple : MonoBehaviour
             camaraVR = Camera.main.transform;
         }
         
+        // Si usarJerarquia está activado, hacer este objeto hijo de la cámara
+        if (usarJerarquia && camaraVR != null)
+        {
+            transform.SetParent(camaraVR);
+            transform.localPosition = new Vector3(offset.x, offset.y, distancia);
+            transform.localRotation = Quaternion.identity;
+            inicializado = true;
+        }
+        
         StartCoroutine(MetronomoInfinito());
     }
     
-    void LateUpdate()
+    void Update()
     {
-        if (camaraVR == null) return;
-        
-        Vector3 posicionObjetivo = camaraVR.position 
-            + camaraVR.forward * distancia 
-            + camaraVR.right * offset.x 
-            + camaraVR.up * offset.y;
-        
-        transform.position = Vector3.Lerp(transform.position, posicionObjetivo, Time.deltaTime * suavizado);
-        
-        Vector3 direccion = camaraVR.position - transform.position;
-        Quaternion rotacionObjetivo = Quaternion.LookRotation(-direccion);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, Time.deltaTime * suavizado);
+        // Solo actualizar posición si NO es hijo de la cámara
+        if (!usarJerarquia && camaraVR != null)
+        {
+            Vector3 posicionObjetivo = camaraVR.position 
+                + camaraVR.forward * distancia 
+                + camaraVR.right * offset.x 
+                + camaraVR.up * offset.y;
+            
+            transform.position = posicionObjetivo;
+            
+            Vector3 direccion = camaraVR.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(-direccion);
+        }
     }
     
     IEnumerator MetronomoInfinito()
@@ -69,14 +80,14 @@ public class MetronomoVRSimple : MonoBehaviour
                 
                 if (circuloIndicador != null)
                 {
-                    circuloIndicador.texture = texturaActiva;  // Cambiar la textura a la activa
+                    circuloIndicador.texture = texturaActiva;
                 }
                 
                 yield return new WaitForSeconds(duracionPorTiempo * 0.15f);
                 
                 if (circuloIndicador != null)
                 {
-                    circuloIndicador.texture = texturaInactiva;  // Cambiar la textura a la inactiva
+                    circuloIndicador.texture = texturaInactiva;
                 }
                 
                 yield return new WaitForSeconds(duracionPorTiempo * 0.85f);
