@@ -3,6 +3,10 @@ using UnityEngine;
 public class AudioTriggerPlayer : MonoBehaviour
 {
     private AudioSource audioSource;
+
+    [Header("Eventos Audios")]
+    public AudioTimedUnityEvent[] events;
+
     private bool alreadyPlayed = false;
 
     void Start()
@@ -17,6 +21,22 @@ public class AudioTriggerPlayer : MonoBehaviour
         {
             audioSource.Play();
             alreadyPlayed = true;
+        }
+    }
+
+    void Update()
+    {
+        if (!audioSource.isPlaying)
+            return;
+
+        foreach (var e in events)
+        {
+            if (!e.triggered && audioSource.time >= e.time)
+            {
+                Debug.Log("SE INVOKO UN EVENTO");
+                e.triggered = true;
+                e.onTrigger.Invoke();
+            }
         }
     }
 }
