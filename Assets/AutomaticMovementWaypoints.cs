@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class AutomaticMovementWaypoints : MonoBehaviour
@@ -19,6 +20,9 @@ public class AutomaticMovementWaypoints : MonoBehaviour
     [SerializeField] private bool usarPausas = false;
     [SerializeField] private float tiempoPausaEnCadaPunto = 2f;
     
+    [Header("Espera inicial")]
+    [SerializeField] private float esperaInicial = 5f; // Espera antes de empezar
+    
     private int waypointActualIndex = 0;
     private bool movimientoActivo = false;
     private bool enPausa = false;
@@ -32,10 +36,19 @@ public class AutomaticMovementWaypoints : MonoBehaviour
             return;
         }
         
+        // Iniciar con espera de 5 segundos
+        StartCoroutine(IniciarRecorridoConEspera());
+    }
+    
+    IEnumerator IniciarRecorridoConEspera()
+    {
+        Debug.Log("Esperando " + esperaInicial + " segundos antes de iniciar recorrido...");
+        yield return new WaitForSeconds(esperaInicial);
+        
         waypointActualIndex = 0;
         movimientoActivo = true;
         enPausa = false;
-        Debug.Log("Recorrido automatico iniciado con " + waypoints.Count + " puntos");
+        Debug.Log("¡Recorrido automatico iniciado con " + waypoints.Count + " puntos!");
     }
     
     public void DetenerRecorrido()
