@@ -4,6 +4,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject panelMenuPrincipal;
     public GameObject panelConfiguracion;
+    public GameObject panelCreditos;
     
     void Start()
     {
@@ -13,6 +14,8 @@ public class MenuManager : MonoBehaviour
     public void MostrarConfiguracion()
     {
         panelMenuPrincipal.SetActive(false);
+        panelConfiguracion.SetActive(false);
+        panelCreditos.SetActive(false);
         panelConfiguracion.SetActive(true);
     }
     
@@ -20,6 +23,14 @@ public class MenuManager : MonoBehaviour
     {
         panelMenuPrincipal.SetActive(true);
         panelConfiguracion.SetActive(false);
+        panelCreditos.SetActive(false);
+    }
+    
+    public void MostrarCreditos()
+    {
+        panelMenuPrincipal.SetActive(false);
+        panelConfiguracion.SetActive(false);
+        panelCreditos.SetActive(true);
     }
     
     public void SalirJuego()
