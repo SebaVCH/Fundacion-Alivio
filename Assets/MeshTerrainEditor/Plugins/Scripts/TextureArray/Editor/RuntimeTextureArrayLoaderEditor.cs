@@ -1,5 +1,9 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
+
+
+
 
 namespace MTE
 {
@@ -24,3 +28,5 @@ namespace MTE
         }
     }
 }
+
+#endif //UNITY_EDITOR
