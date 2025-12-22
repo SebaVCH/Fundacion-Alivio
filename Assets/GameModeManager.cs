@@ -34,9 +34,16 @@ public class GameModeManager : MonoBehaviour
     
     public void IniciarJuegoAutomatico()
     {
+		Debug.Log("[GameModeManager] Iniciando juego AUTOMÁTICO");
+
         modoActual = ModoJuego.Automatico;
         SceneManager.LoadScene("New Scene");
     }
+	
+	public void ResetearModo()
+	{
+		modoActual = ModoJuego.Manual;
+	}
     
     public bool EsModoAutomatico()
     {

@@ -75,6 +75,10 @@ public class TimerCambioEscena : MonoBehaviour
     void CambiarEscena()
     {
         Debug.Log($"[TimerCambioEscena] ¡Tiempo cumplido! Cambiando a escena: {nombreEscenaDestino}");
+		if (GameModeManager.Instance != null)
+		{
+			GameModeManager.Instance.ResetearModo();
+		}
         SceneManager.LoadScene(nombreEscenaDestino);
     }
     
