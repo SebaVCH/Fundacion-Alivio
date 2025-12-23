@@ -1,10 +1,19 @@
 # ninja log v5
 60	3459	7878003798380419	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	42975b0b83c62685
 47	3476	7878003798430915	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	195383134d559af
-1	3479	7878003798538840	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	663c28223a2d2bd7
-87	3490	7878003798741534	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	941dd9203270ba1e
-13	3535	7878003799097219	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	618037f5f50eadb
 73	3816	7878003801920178	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d630ea5f8099807
+1	3479	7878003798538840	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	663c28223a2d2bd7
+13	3535	7878003799097219	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	618037f5f50eadb
+87	3490	7878003798741534	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	941dd9203270ba1e
 36	3835	7878003802190482	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	94623f0a68e1a5c0
 24	3971	7878003803270607	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c8dce37c62c5235
 3971	4162	7878003805565900	C:/Users/crist/Escritorio/GitHub/Fundacion-Alivio/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4n116n2s/obj/arm64-v8a/libgame.so	e7c5974b9323118b
+38	3450	7882359245738066	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	195383134d559af
+47	3454	7882359245738066	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	42975b0b83c62685
+13	3459	7882359245793823	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	663c28223a2d2bd7
+66	3471	7882359246016995	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	941dd9203270ba1e
+30	3489	7882359246245382	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	618037f5f50eadb
+56	3686	7882359248198366	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	94623f0a68e1a5c0
+22	3789	7882359249221504	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c8dce37c62c5235
+76	3842	7882359249760878	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	d630ea5f8099807
+3842	4049	7882359251848626	C:/Users/crist/Escritorio/GitHub/Fundacion-Alivio/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/4n116n2s/obj/arm64-v8a/libgame.so	e7c5974b9323118b
